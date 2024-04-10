@@ -67,6 +67,7 @@ logIn.addEventListener("click", (e) => {
             const user = userCredential.user;
             window.location.href = "b3.html"
             // ... 
+            localStorage.setItem("Session", email);  
         })
         .catch((error) => {
 const errorCode = error.code;

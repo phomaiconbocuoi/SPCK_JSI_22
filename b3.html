@@ -59,7 +59,7 @@ and is wrapped around the whole page content, except for the footer in this exam
   <div class="w3-row w3-padding w3-border">
 
     <!-- Blog entries -->
-    <div class="w3-col l8 s12">
+    <div id="posts" class="w3-col l8 s12">
     
       <!-- Blog entry -->
       <div class="w3-container w3-white w3-margin w3-padding-large">
@@ -298,13 +298,18 @@ girl_hood.jpg" style="width:90px;">
           <h4>Post</h4>
         </div>
         <div class="w3-container w3-white">
-          <p>Enter your e-mail below and get notified on the latest blog posts.</p>
-          <p><input id="Name" class="w3-input w3-border" type="text" placeholder="Enter Name" style="width:100%"></p>
-          <p><input id="title" class="post" type="text" placeholder="Title" style="width: 100%; padding: 6px;"></p>
-          <p><input id="date" class="date" type="text" placeholder="Date" style="width: 100%; padding: 6px;"></p>
-          <p><input id="picture" class="picture" type="file" placeholder="Image" style="width: 100%; padding: 6px;"></p>
-          <p><input id="description" class="post" type="text" placeholder="Description" style="width: 100%; padding: 6px;"></p>
-          <p><button type="button" onclick="document.getElementById('subscribe').style.display='block'" class="w3-button w3-block w3-red">Post</button></p>
+          <form id="post-form">
+             <p>Enter your e-mail below and get notified on the latest blog posts.</p>
+              <p><input id="heading" class="post" type="text" placeholder="TITLE HEADING" style="width: 100%; padding: 6px;"></p>
+              <p><input id="description" class="post" type="text" placeholder="Title description" style="width: 100%; padding: 6px;"></p>
+              <p><input id="name" class="w3-input w3-border" type="text" placeholder="Enter Name" style="width:100%"></p>
+              <p><input id="wish" class="post" type="text" placeholder="Your Wishes!!" style="width: 100%; padding: 6px;"></p>
+              <p><input id="img" class="post" type="file" placeholder="Link" style="width: 100%; padding: 6px;"></p>
+              <p><input id="date" class="post" type="date" placeholder="Date" style="width: 100%; padding: 6px;"></p>
+              <p><button type="button" onclick="document.getElementById('subscribe').style.display='block'"
+                  class="w3-button w3-block w3-red">Post</button></p>
+          </form>
+         
         </div>
       </div>
 
@@ -325,7 +330,8 @@ girl_hood.jpg" style="width:90px;">
       <h2 class="w3-wide" style="text-align: center;">Do you want to post?</h2>
      <br> 
      <br>
-      <button type="button" class="w3-button w3-block w3-padding-large w3-red w3-margin-bottom" onclick="document.getElementById('subscribe').style.display='none'">Yes</button>
+      <button type="button" class="w3-button w3-block w3-padding-large w3-red w3-margin-bottom" onclick="upload()">Yes</button>
+      <!-- <button type="button" class="w3-button w3-block w3-padding-large w3-red w3-margin-bottom" onclick="document.getElementById('subscribe').style.display='none'">Yes</button> -->
     </div>
   </div>
 </div>
@@ -372,6 +378,28 @@ function likeFunction(x) {
   x.innerHTML = "✓ Liked";
 }
 </script>
+<script src="https://www.gstatic.com/firebasejs/7.14.2/firebase.js"></script>
+<script type="module">
+  // Import the functions you need from the SDKs you need
+  // import { initializeApp } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-app.js";
+  // TODO: Add SDKs for Firebase products that you want to use
+  // https://firebase.google.com/docs/web/setup#available-libraries
+
+  // Your web app's Firebase configuration
+  const firebaseConfig = {
+    apiKey: "AIzaSyAlQD8BrJ7RvYA5b6EIw8aO8-dLQseqcm8",
+    authDomain: "jsi-22-9781d.firebaseapp.com",
+    databaseURL: "https://jsi-22-9781d-default-rtdb.firebaseio.com",
+    projectId: "jsi-22-9781d",
+    storageBucket: "jsi-22-9781d.appspot.com",
+    messagingSenderId: "346504556040",
+    appId: "1:346504556040:web:2ae4eb015d65318960abbd"
+  };
+
+  // Initialize Firebase
+   firebase.initializeApp(firebaseConfig);
+</script>
+<script src="app.js"></script>
 
 </body>
 </html>
